@@ -7,7 +7,7 @@ const { execSync } = require('child_process')
 const { promisify } = require('util')
 
 const getlog = promisify(git.log.bind(git))
-
+console.log('Getting from URL',process.env.NPM_REGISTRY_URL)
 const get = bent('json', `https://${process.env.NPM_REGISTRY_URL}/` || 'https://registry.npmjs.org/')
 
 const event = JSON.parse(fs.readFileSync('/github/workflow/event.json').toString())
